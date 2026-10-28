@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLASHPESA LOANS - Fast & Secure</title>
+    <!-- Google Fonts for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-blue: #0056D2; /* FlashPesa Blue */
+            --primary-orange: #FF7A00; /* FlashPesa Orange */
+            --dark-blue: #003a8c;
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* CSS-based Logo mimicking FlashPesa */
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            width: 30px;
+            height: 60px;
+            background-color: var(--primary-orange);
+            transform: rotate(30deg);
+        }
+
+        .logo-icon::after {
+            content: '⚡';
+            position: absolute;
+            color: white;
+            font-size: 24px;
+            z-index: 2;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* --- LOAN TABLE SECTION --- */
+        .section-title {
+            text-align: center;
+            margin: 30px 0 15px;
+            color: var(--primary-blue);
+            font-size: 20px;
+        }
+
+        .table-container {
+            background: var(--white);
+            border-radius: 15px;
+            overflow-x: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 15px;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .amount-highlight {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* --- FORM SECTION --- */
+        .form-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border-top: 5px solid var(--primary-orange);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 86, 210, 0.3);
+        }
+
+        .note {
+            font-size: 12px;
+            color: var(--primary-orange);
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--dark-blue);
+        }
+
+        /* --- SUPPORT & FOOTER --- */
+        .support-section {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .support-section p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .support-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-email, .btn-whatsapp {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .btn-email {
+            background-color: #ea4335;
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn-email:hover, .btn-whatsapp:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: var(--text-light);
+            border-top: 1px solid #ddd;
+            background: var(--white);
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .form-card {
+                padding: 40px;
+            }
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon"></div>
+            <div class="logo-text">
+                <h1>FLASHPESA LOANS</h1>
+                <span>Secure & Private</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Get Up to Ksh 100,000 Instantly!</h2>
+        <p>Money in 7 minutes straight to your M-PESA.</p>
+        <div class="badges">
+            <span class="badge">✓ No Guarantors</span>
+            <span class="badge">✓ Fully Secured</span>
+            <span class="badge">✓ 24/7 Support</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- LOAN TABLE -->
+        <h3 class="section-title">Loan Amount & Processing Fees</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Loan Amount (KES)</th>
+                        <th>Processing Fee (KES)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="amount-highlight">1,000 - 5,000</td>
+                        <td>99</td>
+                    </tr>
+                    <tr>
+                        <td class="amount-highlight">5,001 - 20,000</td>
+                        <td>199</td>
+                    </tr>
+                    <tr>
+                        <td class="amount-highlight">20,001 - 50,000</td>
+                        <td>499</td>
+                    </tr>
+                    <tr>
+                        <td class="amount-highlight">50,001 - 100,000</td>
+                        <td>999</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- APPLICATION FORM -->
+        <h3 class="section-title">Apply Now</h3>
+        <div class="form-card">
+            <form id="loanForm">
+                <div class="form-group">
+                    <label for="fullName">Full Names</label>
+                    <input type="text" id="fullName" placeholder="e.g. John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="idNumber">ID Number</label>
+                    <input type="number" id="idNumber" placeholder="Enter your National ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mpesaNumber">M-PESA Number</label>
+                    <input type="tel" id="mpesaNumber" placeholder="e.g. 0712345678" pattern="[0-9]{10}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="e.g. johndoe@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="loanAmount">Select Loan Amount Needed</label>
+                    <select id="loanAmount" required>
+                        <option value="" disabled selected>Select Amount</option>
+                        <option value="1000 - 5000 (Fee: 99)">1,000 - 5,000 KES (Fee: 99)</option>
+                        <option value="5001 - 20000 (Fee: 199)">5,001 - 20,000 KES (Fee: 199)</option>
+                        <option value="20001 - 50000 (Fee: 499)">20,001 - 50,000 KES (Fee: 499)</option>
+                        <option value="50001 - 100000 (Fee: 999)">50,001 - 100,000 KES (Fee: 999)</option>
+                    </select>
+                    <div class="note">* No guarantors needed.</div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Proceed to Support (WhatsApp) ➔
+                </button>
+            </form>
+        </div>
+
+        <!-- SUPPORT SECTION -->
+        <div class="support-section">
+            <p>Need help with your application? Contact our support team.</p>
+            <div class="support-buttons">
+                <a href="mailto:netsoftmanagment@gmail.com" class="btn-email">
+                    ✉ Email Support
+                </a>
+                <a href="https://wa.me/15878145584" target="_blank" class="btn-whatsapp">
+                    💬 WhatsApp Support
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2024 FLASHPESA LOANS. All rights reserved. <br>
+        Licensed & Regulated Financial Service.
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/15878145584" class="floating-wa" target="_blank" title="Chat with Support">
+        💬
+    </a>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        document.getElementById('loanForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page reload
+
+            // Get user input values
+            const fullName = document.getElementById('fullName').value.trim();
+            const idNumber = document.getElementById('idNumber').value.trim();
+            const mpesaNumber = document.getElementById('mpesaNumber').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const loanAmount = document.getElementById('loanAmount').value;
+
+            // Basic Validation Check
+            if(!fullName || !idNumber || !mpesaNumber || !email || !loanAmount) {
+                alert('Please fill out all fields before proceeding.');
+                return;
+            }
+
+            // Validate M-Pesa format (simple check for 10 digits)
+            if(mpesaNumber.length !== 10) {
+                alert('Please enter a valid 10-digit M-Pesa number (e.g., 0712345678).');
+                return;
+            }
+
+            // Construct the message for WhatsApp
+            const whatsappNumber = "15878145584"; // Your provided WhatsApp number
+            
+            let message = `*NEW LOAN APPLICATION*\n\n`;
+            message += `*Name:* ${fullName}\n`;
+            message += `*ID Number:* ${idNumber}\n`;
+            message += `*M-Pesa Number:* ${mpesaNumber}\n`;
+            message += `*Email:* ${email}\n`;
+            message += `*Loan Amount Selected:* ${loanAmount}\n\n`;
+            message += `I am ready to proceed with the processing fee. Please assist me.`;
+
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Optional: Reset form after submission
+            // document.getElementById('loanForm').reset();
+        });
+    </script>
+</body>
+  </html>
